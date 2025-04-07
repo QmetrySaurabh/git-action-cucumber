@@ -2,7 +2,7 @@ on:
   push:
 env:
   PROJECT: TBC
-  FILE_NAME: Cucumber.json
+  FILE_NAME: target/Cucumber.json
   TESTING_TYPE: CUCUMBER
   SKIP_WARNING: 1
   IS_MATCHING_REQUIRED: 'false'
