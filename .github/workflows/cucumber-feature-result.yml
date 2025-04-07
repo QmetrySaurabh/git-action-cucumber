@@ -34,25 +34,9 @@ jobs:
       - name: Upload Cucumber Results to QMetry
         run: |
           FINAL_RESPONSE="$(curl --location \
-            --request POST "$INSTANCE_URL/rest/import/createandscheduletestresults/1" \
+            --request POST "﻿﻿https://testmanagement.qmetry.com/rest/import/createandscheduletestresults/1" \
             --header "project:$PROJECT" \
-            --header "apiKey:$API_KEY" \
+            --header "apiKey:T0cEQJ1G5r8ztbyH4lsPI9IvWe3yV3moPpgQ375v" \
             --form "file=@$FILE_NAME" \
-            --form "entityType=$TESTING_TYPE" \
-            --form "projectID=$PROJECT" \
-            --form "releaseID=$RELEASE_ID" \
-            --form "cycleID=$CYCLE_ID" \
-            --form "buildID=$BUILD_ID" \
-            --form "platformID=$PLATFORM_ID" \
-            --form "testsuiteName=$TESTSUITE_NAME" \
-            --form "testsuiteId=$TESTSUITE_ID" \
-            --form "tsFolderPath=$TESTSUITE_FOLDER_PATH" \
-            --form "skipWarning=$SKIP_WARNING" \
-            --form "is_matching_required=$IS_MATCHING_REQUIRED" \
-            --form "automationHierarchy=$AUTOMATION_HIERARCHY" \
-            --form "testcase_fields=$TESTCASE_FIELDS" \
-            --form "testsuite_fields=$TESTSUITE_FIELDS")"
+            --form "entityType=$TESTING_TYPE" \)"
           echo "API Response = $FINAL_RESPONSE"
-        env:
-          INSTANCE_URL: ${{ secrets.INSTANCE_URL }}
-          API_KEY: ${{ secrets.API_KEY }}
