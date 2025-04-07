@@ -1,0 +1,58 @@
+name: Cucumber Test Upload to QMetry
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT: TBC
+  FILE_NAME: Cucumber.json
+  TESTING_TYPE: CUCUMBER
+  SKIP_WARNING: 1
+  IS_MATCHING_REQUIRED: 'false'
+  # RELEASE_ID:
+  # CYCLE_ID:
+  # BUILD_ID:
+  # PLATFORM_ID:
+  # TESTSUITE_NAME:
+  # TESTSUITE_ID:
+  # TESTSUITE_FOLDER_PATH:
+  # AUTOMATION_HIERARCHY:
+  # TESTCASE_FIELDS:
+  # TESTSUITE_FIELDS:
+
+jobs:
+  upload-cucumber-results:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Upload Cucumber Results to QMetry
+        run: |
+          FINAL_RESPONSE="$(curl --location \
+            --request POST "$INSTANCE_URL/rest/import/createandscheduletestresults/1" \
+            --header "project:$PROJECT" \
+            --header "apiKey:$API_KEY" \
+            --form "file=@$FILE_NAME" \
+            --form "entityType=$TESTING_TYPE" \
+            --form "projectID=$PROJECT" \
+            --form "releaseID=$RELEASE_ID" \
+            --form "cycleID=$CYCLE_ID" \
+            --form "buildID=$BUILD_ID" \
+            --form "platformID=$PLATFORM_ID" \
+            --form "testsuiteName=$TESTSUITE_NAME" \
+            --form "testsuiteId=$TESTSUITE_ID" \
+            --form "tsFolderPath=$TESTSUITE_FOLDER_PATH" \
+            --form "skipWarning=$SKIP_WARNING" \
+            --form "is_matching_required=$IS_MATCHING_REQUIRED" \
+            --form "automationHierarchy=$AUTOMATION_HIERARCHY" \
+            --form "testcase_fields=$TESTCASE_FIELDS" \
+            --form "testsuite_fields=$TESTSUITE_FIELDS")"
+          echo "API Response = $FINAL_RESPONSE"
+        env:
+          INSTANCE_URL: ${{ secrets.INSTANCE_URL }}
+          API_KEY: ${{ secrets.API_KEY }}
