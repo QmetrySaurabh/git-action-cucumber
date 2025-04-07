@@ -31,8 +31,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build with Maven (if needed)
+      - name: Build project and run Tests
         run: mvn clean install
+
+      - name: Check if cucumber.json exists
+        run: |
+          if [ -f "$FILE_NAME" ]; then
+            echo "✅ $FILE_NAME exists."
+          else
+            echo "❌ $FILE_NAME does not exist."
+            exit 1
+          fi
 
       - name: Upload Cucumber Results to QMetry
         run: |
