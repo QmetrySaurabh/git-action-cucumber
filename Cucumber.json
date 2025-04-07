@@ -1,0 +1,73 @@
+[
+  {
+    "uri": "src/test/resources/features/login.feature",
+    "id": "login-feature",
+    "keyword": "Feature",
+    "name": "Login Feature",
+    "description": "  Testing login functionality for valid and invalid credentials",
+    "line": 1,
+    "elements": [
+      {
+        "id": "login-feature;successful-login",
+        "keyword": "Scenario",
+        "name": "Successful Login",
+        "description": "",
+        "line": 5,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "the user is on the login page",
+            "line": 6,
+            "result": {
+              "status": "passed",
+              "duration": 1200000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user enters valid credentials",
+            "line": 7,
+            "result": {
+              "status": "passed",
+              "duration": 1800000
+            },
+            "embeddings": [
+              {
+                "mime_type": "image/png",
+                "data": "iVBORw0KGgoAAAANSUhEUgAAAAUA..."  // base64 placeholder
+              }
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be redirected to the dashboard",
+            "line": 8,
+            "result": {
+              "status": "passed",
+              "duration": 1500000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-feature;failed-login",
+        "keyword": "Scenario",
+        "name": "Failed Login",
+        "description": "",
+        "line": 12,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "the user is on the login page",
+            "line": 13,
+            "result": {
+              "status": "passed",
+              "duration": 1100000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user enters invalid credentials",
+            "line": 14,
