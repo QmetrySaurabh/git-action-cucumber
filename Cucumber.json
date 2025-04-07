@@ -1,67 +1,58 @@
 [
   {
-    "uri": "src/test/resources/features/login.feature",
-    "id": "login-feature",
+    "uri": "features/banking.feature",
     "keyword": "Feature",
-    "name": "Login Feature",
-    "description": "  Testing login functionality for valid and invalid credentials",
+    "name": "Banking Transactions",
+    "description": "Test scenarios for debit and credit transactions",
     "line": 1,
     "elements": [
       {
-        "id": "login-feature;successful-login",
         "keyword": "Scenario",
-        "name": "Successful Login",
+        "name": "Successful Credit Transaction",
         "description": "",
-        "line": 5,
+        "line": 4,
         "type": "scenario",
         "steps": [
           {
             "keyword": "Given ",
-            "name": "the user is on the login page",
-            "line": 6,
+            "name": "User has a bank account with balance $1000",
+            "line": 5,
             "result": {
               "status": "passed",
-              "duration": 1200000
+              "duration": 1000000
             }
           },
           {
             "keyword": "When ",
-            "name": "the user enters valid credentials",
-            "line": 7,
-            "result": {
-              "status": "passed",
-              "duration": 1800000
-            },
-            "embeddings": [
-              {
-                "mime_type": "image/png",
-                "data": "iVBORw0KGgoAAAANSUhEUgAAAAUA..."  // base64 placeholder
-              }
-            ]
-          },
-          {
-            "keyword": "Then ",
-            "name": "the user should be redirected to the dashboard",
-            "line": 8,
+            "name": "User credits $500 to the account",
+            "line": 6,
             "result": {
               "status": "passed",
               "duration": 1500000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "The account balance should be $1500",
+            "line": 7,
+            "result": {
+              "status": "passed",
+              "duration": 1200000
             }
           }
         ]
       },
       {
-        "id": "login-feature;failed-login",
         "keyword": "Scenario",
-        "name": "Failed Login",
+        "name": "Successful Debit Transaction",
         "description": "",
-        "line": 12,
+        "line": 10,
         "type": "scenario",
         "steps": [
           {
             "keyword": "Given ",
-            "name": "the user is on the login page",
-            "line": 13,
+            "name": "User has a bank account with balance $2000",
+            "line": 11,
             "result": {
               "status": "passed",
               "duration": 1100000
@@ -69,5 +60,24 @@
           },
           {
             "keyword": "When ",
-            "name": "the user enters invalid credentials",
-            "line": 14,
+            "name": "User debits $700 from the account",
+            "line": 12,
+            "result": {
+              "status": "passed",
+              "duration": 1600000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "The account balance should be $1300",
+            "line": 13,
+            "result": {
+              "status": "passed",
+              "duration": 1300000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
