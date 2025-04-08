@@ -6,11 +6,11 @@ env:
   TESTING_TYPE: CUCUMBER
   SKIP_WARNING: 1
   IS_MATCHING_REQUIRED: 'false'
-  # RELEASE_ID:
-  # CYCLE_ID:
+  #RELEASE_ID:71875
+  #CYCLE_ID:
   # BUILD_ID:
-  # PLATFORM_ID:
-  # TESTSUITE_NAME:
+  #PLATFORM_ID:
+  TESTSUITE_NAME: GitAction Pipeline
   # TESTSUITE_ID:
   # TESTSUITE_FOLDER_PATH:
   # AUTOMATION_HIERARCHY:
@@ -50,6 +50,7 @@ jobs:
             --header "project:TBC" \
             --header "apiKey:T0cEQJ1G5r8ztbyH4lsPI9IvWe3yV3moPpgQ375v" \
             --form "file=@$FILE_NAME" \
+            --form "testsuiteName=$TESTSUITE_NAME" \
             --form "entityType=$TESTING_TYPE")"
           echo "API Response = $FINAL_RESPONSE"
       
