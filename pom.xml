@@ -51,7 +51,7 @@
                     <testRunName>New Test Run</testRunName>
                     
                 </systemPropertyVariables>
-<!--               <argLine>**-Dcucumber.options="--plugin json:target/cucumber.json"**</argLine> -->
+              
   <argLine>-Dcucumber.options="--plugin json:target/cucumber.json"</argLine>
 
             </configuration>
